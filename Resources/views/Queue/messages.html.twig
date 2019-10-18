@@ -1,0 +1,30 @@
+{% extends 'SQSInsightBundle::base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <h1>
+        {{queueName}}
+        <a href="{{ url('_sqs_insight') }}" class="btn btn-primary float-right m-1">Back</a>
+    </h1>
+
+    <hr />
+
+    {% for data in messages %}
+        <div class="card mb-3">
+            <h5 class="card-header">{{data.id}}</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{data.datetime|date('Y-m-d H:i:s')}}</li>
+                <li class="list-group-item bg-dark">
+                    <pre class="card-text text-white">{{data.attributes|json_encode(constant('JSON_PRETTY_PRINT'))}}</pre>
+                </li>
+                <li class="list-group-item bg-secondary">{{data.class}}</li>
+                <li class="list-group-item bg-dark">
+                    <pre class="card-text text-white">{{data.content|default(data.raw)}}</pre>
+                </li>
+            </ul>
+        </div>
+    {% else %}
+        <p>No Messages</p>
+    {% endfor %}
+</div>
+{% endblock %}

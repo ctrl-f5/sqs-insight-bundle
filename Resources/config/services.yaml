@@ -1,0 +1,10 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  Ctrl\SQSInsightBundle\Controller\QueueController:
+    public: true
+    tags: ['controller.service_arguments']
+
+  Ctrl\SQSInsightBundle\SQS\SQSClient:

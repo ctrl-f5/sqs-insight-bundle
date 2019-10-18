@@ -1,0 +1,23 @@
+{
+    "name": "ctrl-f5/sqs-insight-bundle",
+    "type": "symfony-bundle",
+    "description": "SQS Insight Bundle",
+    "keywords": ["sqs","queue"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nicky De Maeyer",
+            "email": "nicky@ctrl-f5.be"
+        }
+    ],
+    "require": {
+        "php": ">=7.3",
+        "aws/aws-sdk-php": "^3",
+        "symfony/dependency-injection": "^4.3",
+        "symfony/http-kernel": "^4.3",
+        "symfony/config": "^4.3"
+    },
+    "autoload": {
+        "psr-4": { "Ctrl\\SQSInsightBundle\\": "" }
+    }
+}

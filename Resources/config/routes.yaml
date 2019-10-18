@@ -1,0 +1,7 @@
+_sqs_insight:
+    path: /sqs-insight
+    controller: Ctrl\SQSInsightBundle\Controller\QueueController::index
+
+_sqs_insight_queue:
+    path: /sqs-insight/{queueUrl}
+    controller: Ctrl\SQSInsightBundle\Controller\QueueController::messages

@@ -1,0 +1,14 @@
+{% extends 'SQSInsightBundle::base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <h1>Queues</h1>
+    <ul class="list-group">
+        {% for queue in queues %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="{{ url('_sqs_insight_queue', { queueUrl: queue.url|url_encode }) }}">{{ queue.name }}</a> <span class="badge badge-primary badge-pill">{{ queue.messageCount }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
